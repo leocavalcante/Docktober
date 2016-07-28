@@ -7,8 +7,9 @@
 - and the official Apache [httpd image](https://hub.docker.com/_/httpd/) as web/proxy server.
 
 #### First
-Make sure that your October project is using `.env` to setup MySQL's user, password and database name.
-Then place this repo contents at some folder in your project, like a `.docker` folder.
+1. Make sure that your October project is using `.env` to setup MySQL's user, password and database name.
+2. Change `DB_HOST` value to `db`.
+3. Clone this repo contents at some folder in your project's root directory, e.g.: `.docker` folder.
 
 #### Up!
 
