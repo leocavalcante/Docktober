@@ -2,31 +2,28 @@
 ### Simple: [Docker](https://www.docker.com/) + [OctoberCMS](http://octobercms.com/)
 
 #### It uses the:
-- official [mysql:5.7 image](https://hub.docker.com/_/mysql/) as database,
+- official [mysql:5.7 image](https://hub.docker.com/_/mysql/) as database (but you can change to pgsql for example),
 - official [php:fpm image](https://hub.docker.com/_/php/) to run PHP over [FastCGI](https://en.wikipedia.org/wiki/FastCGI)
 - and the official Apache [httpd image](https://hub.docker.com/_/httpd/) as web/proxy server.
 
-#### First
-1. Make sure that your October project is using `.env` to setup MySQL's user, password and database name.
-2. Change `DB_HOST` value to `db`.
-3. Clone this repo contents at some folder in your project's root directory, e.g.: `.docker` folder.
+#### How to
 
-#### Up!
+##### From scratch
 
-![Pixar Up](https://media.giphy.com/media/H8P253lLGnEn6/giphy.gif)
+1. `git clone https://github.com/octobercms/october.git my-app`
+2. `cd my-app`
+3. `git clone https://github.com/leocavalcante/Docktober.git .docker`
+4. `docker-compose -f .docker/docker-compose.yml up -d --build`
+5. `docker exec docker_php_1 composer install`
 
-#### Docker Up!
-Run `docker-composer up` at project root folder so Docker can use the same `.env` file as the October:
-```bash
-docker-compose -f .docker/docker-compose.yml up -d --build
-```
-`docker-compose.yml` will load your project's `.env` file and make a [variable substitution](https://docs.docker.com/compose/compose-file/#variable-substitution) at MySQL's image environment variables.
-MySQL image is pretty nice so when it creates a new container it also create a database and set passwords using this same config, so October will be already configured.
+Here you should already be seeing October's demo theme at `http://<YOUR_DOCKER_MACHINE_IP>:8000`.<br>
+And you can work with it as a [flat-file CMS](https://vimeo.com/172202661)
 
-#### October Up!
-Then run `october:up` at PHP-FPM's container:
-```bash
-docker exec docker_php_1 php artisan october:up
-```
+**if you want some database power**
 
-You should be all set. Access `http://<YOUR_DOCKER_MACHINE_IP>:8000` and see your October project running.
+1. `docker exec docker_php_1 php artisan october:env`
+2. Set `.env`'s `DB_HOST` to `db` and add some `DB_PASSWORD`
+3. `docker-compose -f .docker/docker-compose.yml up -d --build`
+4. `docker exec docker_php_1 php artisan october:up`
+
+Now you should be able to access `http://<YOUR_DOCKER_MACHINE_IP>:8000/backend` and enjoy OctoberCMS.
