@@ -12,7 +12,7 @@ services:
     build:
       context: ./php-fpm
     volumes:
-      - ../:/var/www/html
+      - ../:/usr/local/app
     links:
       - db
 
