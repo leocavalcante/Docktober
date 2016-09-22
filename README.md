@@ -27,3 +27,5 @@ And you can work with it as a [flat-file CMS](https://vimeo.com/172202661)
 4. `docker exec docker_php_1 php artisan october:up`
 
 Now you should be able to access `http://<YOUR_DOCKER_MACHINE_IP>:8000/backend` and enjoy OctoberCMS.
+
+**Recommendation:** add [`container_name`](https://docs.docker.com/compose/compose-file/#/container-name) to your services referencing your project's name.
