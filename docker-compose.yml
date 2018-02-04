@@ -1,6 +1,7 @@
 version: '3'
 services:
   db:
+    container_name: docktober_db
     image: mysql:5.7
     environment:
       - MYSQL_DATABASE=${DB_DATABASE}
@@ -9,6 +10,7 @@ services:
       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
 
   php:
+    container_name: docktober_php
     build:
       context: ./php-fpm
     volumes:
@@ -17,6 +19,7 @@ services:
       - db
 
   web:
+    container_name: docktober_web
     build:
       context: ./apache
     ports:
