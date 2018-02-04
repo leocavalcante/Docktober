@@ -14,7 +14,7 @@
 2. `cd my-app`
 3. `git clone https://github.com/leocavalcante/Docktober.git .docker`
 4. `docker-compose -f .docker/docker-compose.yml up -d --build`
-5. `docker exec docker_php_1 composer install`
+5. `docker exec <docktober_php> composer install`
 
 Here you should already be seeing October's demo theme at `http://<YOUR_DOCKER_MACHINE_IP>:8000`.<br>
 And you can work with it as a [flat-file CMS](https://vimeo.com/172202661)
