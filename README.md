@@ -14,12 +14,12 @@
 2. `cd my-app`
 3. `git clone https://github.com/leocavalcante/Docktober.git .docker`
 4. `docker-compose -f .docker/docker-compose.yml up -d --build`
-5. `docker exec <docktober_php> composer install`
+5. `docker-compose -f .docker/docker-compose.yml exec php composer install`
 
 Here you should already be seeing October's demo theme at `http://<YOUR_DOCKER_MACHINE_IP>:8000`.<br>
-And you can work with it as a [flat-file CMS](https://vimeo.com/172202661)
+And you can work with it as a [flat-file CMS](https://vimeo.com/172202661).<br>
 
-**if you want some database power**
+##### If you want some database power
 
 1. `docker exec docker_php_1 php artisan october:env`
 2. Set `.env`'s `DB_HOST` to `db` and add some `DB_PASSWORD`
@@ -28,4 +28,4 @@ And you can work with it as a [flat-file CMS](https://vimeo.com/172202661)
 
 Now you should be able to access `http://<YOUR_DOCKER_MACHINE_IP>:8000/backend` and enjoy OctoberCMS.
 
-**Recommendation:** replace [`container_name`](https://docs.docker.com/compose/compose-file/#/container-name) to your services referencing your project's name.
+**Recommendation:** rename [`container_name`](https://docs.docker.com/compose/compose-file/#/container-name) at `.docker/docker-compose.yml` to something meaningful.
