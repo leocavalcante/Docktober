@@ -21,11 +21,11 @@ And you can work with it as a [flat-file CMS](https://vimeo.com/172202661).<br>
 
 ##### If you want some database power
 
-1. `docker exec docker_php_1 php artisan october:env`
-2. Set `.env`'s `DB_HOST` to `db` and add some `DB_PASSWORD`
+1. `docker-compose -f .docker/docker-compose.yml exec php php artisan october:env`
+2. Set `.env`'s `DB_HOST` to `db` and add some value for `DB_PASSWORD`
 3. `docker-compose -f .docker/docker-compose.yml up -d --build`
-4. `docker exec docker_php_1 php artisan october:up`
+4. `docker-compose -f .docker/docker-compose.yml exec php php artisan october:up`
 
-Now you should be able to access `http://<YOUR_DOCKER_MACHINE_IP>:8000/backend` and enjoy OctoberCMS.
+Now you should be able to access `http://<YOUR_DOCKER_MACHINE_IP>:8000/backend` and enjoy full OctoberCMS.
 
 **Recommendation:** rename [`container_name`](https://docs.docker.com/compose/compose-file/#/container-name) at `.docker/docker-compose.yml` to something meaningful.
