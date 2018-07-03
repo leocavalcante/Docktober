@@ -1,6 +1,8 @@
 # Docktober
 ### Simple: [Docker](https://www.docker.com/) + [OctoberCMS](http://octobercms.com/)
 
+[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=E4F45BFVMFVQW)
+
 #### It uses the:
 - official [mysql:5.7 image](https://hub.docker.com/_/mysql/) as database (but you can change to pgsql for example),
 - official [php:fpm image](https://hub.docker.com/_/php/) to run PHP over [FastCGI](https://en.wikipedia.org/wiki/FastCGI)
