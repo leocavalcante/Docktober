@@ -14,7 +14,7 @@
 
 1. `git clone https://github.com/octobercms/october.git my-app`
 2. `cd my-app`
-3. `git clone https://github.com/leocavalcante/Docktober.git .docker`
+3. `git submodule add https://github.com/leocavalcante/Docktober.git .docker`
 4. `docker-compose -f .docker/docker-compose.yml up -d --build`
 5. `docker-compose -f .docker/docker-compose.yml exec php composer install`
 
